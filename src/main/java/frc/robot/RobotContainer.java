@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 
 public class RobotContainer {
-  private final 
+  private final MotorSubsystem subsystem = new MotorSubsystem();
 
   public RobotContainer() {
     configureBindings();

@@ -12,12 +12,15 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 public class RobotContainer {
   private final MotorSubsystem subsystem = new MotorSubsystem();
+  private final CommandXboxController controller = new CommandXboxController(PortNumberConstants.CONTROLLER_PORT);
 
   public RobotContainer() {
     configureBindings();
   }
 
-  private void configureBindings() {}
+  private void configureBindings() {
+    controller.a().onTrue(subsystem.setSpeed(1));
+  }
 
   public Command getAutonomousCommand() {
     return Commands.print("No autonomous command configured");

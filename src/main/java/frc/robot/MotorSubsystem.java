@@ -8,7 +8,7 @@ public class MotorSubsystem extends SubsystemBase {
     private final TalonFX motor;
 
     public MotorSubsystem() {
-        motor = new TalonFX(PortNumberConstant.PORT);
+        motor = new TalonFX(PortNumberConstants.MOTOR_PORT);
     }
 
     public Command setSpeed(double speed) {

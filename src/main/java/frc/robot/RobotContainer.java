@@ -7,8 +7,6 @@ package frc.robot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import edu.wpi.first.wpilibj2.command.button.Trigger;
-
 
 public class RobotContainer {
   private final MotorSubsystem subsystem = new MotorSubsystem();
@@ -19,7 +17,13 @@ public class RobotContainer {
   }
 
   private void configureBindings() {
-    controller.a().onTrue(subsystem.setSpeed(1));
+    controller.leftTrigger().onTrue(subsystem.setSpeed(1));
+    controller.leftTrigger().onFalse(subsystem.setSpeed(0));
+    controller.rightTrigger().onTrue(subsystem.setSpeed(-1));
+    controller.rightTrigger().onFalse(subsystem.setSpeed(0));
+    controller.leftBumper().onTrue(subsystem.setSpeed(1));
+    controller.rightBumper().onTrue(subsystem.setSpeed(-1));
+    controller.leftBumper().whileTrue(subsystem.setSpeed(1));
   }
 
   public Command getAutonomousCommand() {
